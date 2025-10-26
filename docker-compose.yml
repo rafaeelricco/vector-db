@@ -1,0 +1,35 @@
+name: vector-db-learning
+
+services:
+  vector-store:
+    image: docker.io/qdrant/qdrant:v1.12.5
+    container_name: vector-store
+    restart: always
+    volumes:
+      - ./data/vector-store:/qdrant/storage
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "timeout 1 bash -c 'cat < /dev/null > /dev/tcp/localhost/6333' || exit 1",
+        ]
+      timeout: 2s
+      interval: 5s
+      retries: 10
+      start_period: 20s
+    expose:
+      - 6333 # REST API
+      - 6334 # gRPC
+    ports:
+      - "6333:6333" # REST API
+      - "6334:6334" # gRPC
+    networks:
+      vector-db-learning:
+        ipv4_address: 172.2.1.10
+
+networks:
+  vector-db-learning:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.2.1.0/24
