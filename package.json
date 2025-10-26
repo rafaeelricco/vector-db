@@ -22,11 +22,13 @@
     "@qdrant/js-client-rest": "^1.15.1",
     "cors": "^2.8.5",
     "express": "^5.1.0",
-    "fluture": "^14.0.0"
+    "fluture": "^14.0.0",
+    "luxon": "^3.7.2"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.4",
+    "@types/luxon": "^3.7.1",
     "@types/node": "^24.9.1",
     "prettier": "^3.6.2",
     "reflect-metadata": "^0.2.2",
