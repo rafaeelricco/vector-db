@@ -1,0 +1,4 @@
+- Generate embeddings -> NLP Libs
+- Vector Database -> Used for store vectors and optimized for search them
+  - Search engine
+  - Indexing
